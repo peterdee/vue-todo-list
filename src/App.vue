@@ -1,17 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Form v-bind:input="state.input" v-bind:onSubmit="onSubmit" />
+    <div v-for="todo in state.todos" v-bind:key="todo">
+      <div>{{todo}}</div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Form from './components/Form.vue'
+import Vue from 'vue';
+
+const state = new Vue({
+  input: '',
+  todos: ['learn vue', 'buy vans'],
+});
+
+const onSubmit = (e) => {
+  e.preventDefault();
+};
 
 export default {
   name: 'app',
+  data: () => ({
+    state,
+    onSubmit,
+  }),
   components: {
-    HelloWorld
+    Form,
   }
 }
 </script>
@@ -24,5 +40,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+body, div, input, button {
+  font-size: 16px;
 }
 </style>

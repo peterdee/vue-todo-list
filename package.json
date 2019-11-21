@@ -1,7 +1,9 @@
 {
   "name": "vue-todo-list",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "author": "Peter Dyumin",
+  "description": "A simple Vue To-Do list",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

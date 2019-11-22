@@ -44,7 +44,7 @@ export default {
       );
     },
     deleteTodo(id) {
-      this.todos = this.todos.filter(todo => todo.id !== id);
+      this.todos = [...this.todos].filter(todo => todo.id !== id);
     },
   },
   name: 'app',
@@ -52,6 +52,9 @@ export default {
 </script>
 
 <style>
+  * {
+    font-size: 16px;
+  }
   body {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -59,7 +62,6 @@ export default {
     text-align: center;
     margin: 60px auto;
     width: 415px;
-    font-size: 16px;
     color: black;
   }
   button {

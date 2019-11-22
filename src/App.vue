@@ -26,16 +26,8 @@ export default {
   methods: {
     addTodo(e) {
       e.preventDefault();
-      this.todos = [
-        ...this.todos,
-        {
-          completed: false,
-          id: this.todos && this.todos.length > 0
-            ? this.todos.sort((a, b) => b.id - a.id)[0].id + 1
-            : 1,
-          text: this.input,
-        },
-      ];
+      const id = (this.todos && this.todos.length > 0 && Math.max(...this.todos.map((todo) => todo.id)) + 1) || 1;
+      this.todos.push({ completed: false, id, text: this.input });
       this.input = '';
     },
     changeStatus(id) {
